@@ -2,7 +2,6 @@ import React, { useState, useRef } from "react";
 import Webcam from "react-webcam";
 
 function App() {
-  // const [stream, setStream] = useState(null);
   const stream = useRef(null);
   const [recorder, setRecorder] = useState(null);
   const videoRef = useRef(null);
