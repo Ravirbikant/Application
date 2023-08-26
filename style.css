@@ -1,0 +1,40 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: black;
+}
+
+.blankScreen {
+  background-color: black;
+  height: 90vh;
+  width: 70vw;
+  margin: auto;
+}
+
+.buttons-container {
+  position: absolute;
+  bottom: 10%;
+  display: flex;
+  justify-content: space-between;
+  width: 30%;
+  margin-left: 35%;
+}
+
+button {
+  cursor: pointer;
+  padding: 2% 4%;
+  background-color: transparent;
+  color: white;
+  border-color: white;
+  border: 1px solid;
+  border-radius: 15px;
+}
+
+button:disabled {
+  opacity: 0.2;
+}
