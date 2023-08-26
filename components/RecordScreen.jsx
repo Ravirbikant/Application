@@ -26,7 +26,6 @@ function App() {
         video: true,
         audio: true,
       });
-      // setStream(mediaStream);
       stream.current = mediaStream;
 
       const mediaRecorder = new MediaRecorder(stream.current);
@@ -80,7 +79,6 @@ function App() {
       recorder.stop();
       stream.current.getTracks().forEach((track) => track.stop());
       setStartButtonState(false);
-      console.log("Disabled : " + startButtonState);
       setShowRecording(true);
       setStopButtonState(true);
       setToggleCameraState(true);
