@@ -42,6 +42,19 @@ function App() {
           type: "video/webm",
         });
         videoRef.current.src = URL.createObjectURL(recordedBlob);
+
+        function uploadBlob() {
+          fetch("URL", {
+            method: "POST",
+            body: recordedBlob,
+          })
+            .then((response) =>
+              alert(response.status + " : " + response.statusText)
+            )
+            .catch((err) => alert(err));
+        }
+
+        uploadBlob();
       };
 
       mediaRecorder.start();
@@ -79,6 +92,7 @@ function App() {
       recorder.stop();
       stream.current.getTracks().forEach((track) => track.stop());
       setStartButtonState(false);
+      console.log("Disabled : " + startButtonState);
       setShowRecording(true);
       setStopButtonState(true);
       setToggleCameraState(true);
