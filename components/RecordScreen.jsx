@@ -17,16 +17,16 @@ function App() {
   const [showRecording, setShowRecording] = useState(false);
 
   const startRecording = async () => {
-    setStartButtonState(true);
     setStopButtonState(false);
+    setStartButtonState(true);
     setToggleCameraState(false);
     setToggleMicState(false);
     try {
-      const mediaStream = await navigator.mediaDevices.getUserMedia({
+      const mStream = await navigator.mediaDevices.getUserMedia({
         video: true,
         audio: true,
       });
-      stream.current = mediaStream;
+      stream.current = mStream;
 
       const mediaRecorder = new MediaRecorder(stream.current);
       setRecorder(mediaRecorder);
