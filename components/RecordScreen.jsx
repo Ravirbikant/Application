@@ -2,7 +2,6 @@ import React, { useState, useRef } from "react";
 import Webcam from "react-webcam";
 
 function App() {
-  // const [stream, setStream] = useState(null);
   const stream = useRef(null);
   const [recorder, setRecorder] = useState(null);
   const videoRef = useRef(null);
@@ -27,7 +26,6 @@ function App() {
         video: true,
         audio: true,
       });
-      // setStream(mediaStream);
       stream.current = mediaStream;
 
       const mediaRecorder = new MediaRecorder(stream.current);
@@ -44,6 +42,19 @@ function App() {
           type: "video/webm",
         });
         videoRef.current.src = URL.createObjectURL(recordedBlob);
+
+        function uploadBlob() {
+          fetch("URL", {
+            method: "POST",
+            body: recordedBlob,
+          })
+            .then((response) =>
+              alert(response.status + " : " + response.statusText)
+            )
+            .catch((err) => alert(err));
+        }
+
+        uploadBlob();
       };
 
       mediaRecorder.start();
